@@ -28,7 +28,7 @@ vix = pd.read_csv(io.BytesIO(csv2), encoding='utf8', index_col='Date')
 spx_close = spx.loc[:,'Close']
 spx_close = np.log(spx_close).diff().dropna()
 
-vix_close = vix.loc[1:,'Close']
+vix_close = vix.loc[:,'Close'][1:]
 
 # Normalization without VIX-adjustment
 spx_close_unadjusted = (spx_close - spx_close.mean()) / spx_close.std()
